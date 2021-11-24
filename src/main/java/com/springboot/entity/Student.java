@@ -1,12 +1,25 @@
 package com.springboot.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "student123")
 public class Student {
 
+	@Id
+	@Column(name = "ID")
 	private int id;
+	@Column(name = "NAME")
 	private String name;
-	private int studentClass;
+	@Column(name = "AGE")
 	private int age;
-	private String fatherName;
+	@Column(name = "STUDENT_CLASS")
+	private int student_class;
+	@Column(name = "FATHER_NAME")
+	private String father_name;
 
 	public int getId() {
 		return id;
@@ -24,14 +37,6 @@ public class Student {
 		this.name = name;
 	}
 
-	public int getStudentClass() {
-		return studentClass;
-	}
-
-	public void setStudentClass(int studentClass) {
-		this.studentClass = studentClass;
-	}
-
 	public int getAge() {
 		return age;
 	}
@@ -40,26 +45,34 @@ public class Student {
 		this.age = age;
 	}
 
-	public String getFatherName() {
-		return fatherName;
+	public int getStudent_class() {
+		return student_class;
 	}
 
-	public void setFatherName(String fatherName) {
-		this.fatherName = fatherName;
+	public void setStudent_class(int student_class) {
+		this.student_class = student_class;
+	}
+
+	public String getFather_name() {
+		return father_name;
+	}
+
+	public void setFather_name(String father_name) {
+		this.father_name = father_name;
+	}
+
+	public Student(int id, String name, int age, int student_class, String father_name) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.student_class = student_class;
+		this.father_name = father_name;
 	}
 
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public Student(int id, String name, int studentClass, int age, String fatherName) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.studentClass = studentClass;
-		this.age = age;
-		this.fatherName = fatherName;
 	}
 
 }

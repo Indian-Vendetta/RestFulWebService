@@ -1,6 +1,7 @@
 package com.springboot.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +18,18 @@ public class MainControllerr {
 	StudentsService studentService;
 
 	@GetMapping(value = "/getStudentofclass/{classrequired}")
-	public List<Student> getStudentsOfClass(@PathVariable(value = "classrequired") int clientclassReq) {
+	public List<Student> getStudentsOfClass(@PathVariable int classrequired) {
 
-		List<Student> responseList = studentService.getAllStudentsOfClass(clientclassReq);
+		List<Student> responseList = studentService.getAllStudentsOfClass(classrequired);
+
+		return responseList;
+
+	}
+
+	@GetMapping(value = "/getStudentofclass1/{id}")
+	public Optional<Student> getStudentsOfClassById(@PathVariable(value="id") int id) {
+
+		Optional<Student> responseList = studentService.getAllStudentsByID(id);
 
 		return responseList;
 
